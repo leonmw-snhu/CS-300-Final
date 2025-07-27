@@ -1,0 +1,27 @@
+
+#include <gtest/gtest.h>
+#include "CSVparser.hpp"
+
+// NOTE: Ensure a valid 'test.csv' file exists in the working directory for these tests.
+
+TEST(CSVparserTest, CanLoadValidFile) {
+    CSVparser parser("test.csv");
+    auto data = parser.getData();
+    EXPECT_GT(data.size(), 0) << "Data should not be empty.";
+}
+
+TEST(CSVparserTest, ColumnNamesMatchExpected) {
+    CSVparser parser("test.csv");
+    auto cols = parser.getColumnNames();
+    ASSERT_GE(cols.size(), 2);
+    EXPECT_EQ(cols[0], "CourseID");
+    EXPECT_EQ(cols[1], "CourseName");
+}
+
+TEST(CSVparserTest, DataIntegrityCheck) {
+    CSVparser parser("test.csv");
+    auto data = parser.getData();
+    ASSERT_GE(data.size(), 1);
+    EXPECT_EQ(data[0][0], "CS101");
+    EXPECT_EQ(data[0][1], "Intro to Computer Science");
+}
