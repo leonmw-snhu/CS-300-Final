@@ -1,7 +1,7 @@
 //============================================================================
 // Name        : Project Two.cpp
 // Author      : Leon Machado-Wilcox
-// Version     : 1.0
+// Version     : 1.1
 // Description : Project 2 for CS-300
 //============================================================================
 
@@ -317,7 +317,6 @@ int main(int argc, char *argv[])
 	// Define a LinkedList to hold all the courses
 	LinkedList *courseTable = new LinkedList;
 
-	int choice;
 	bool running = true; // Flag to control the menu loop
 
 	while (running)
@@ -333,7 +332,6 @@ int main(int argc, char *argv[])
 
 		// Get the user's choice
 		std::string input;
-		int num;
 		std::getline(std::cin, input); // Read the entire line
 		std::stringstream ss(input);   // Create a stringstream from the input
 
